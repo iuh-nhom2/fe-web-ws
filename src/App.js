@@ -1,25 +1,57 @@
-import logo from './logo.svg';
-import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import React from 'react';
+import { Provider } from 'react-redux';
+import { history, store } from './redux/store';
+import RouterComponent from './router';
+import { getTokenStorage } from './utils';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.context = null;
+    this.state={
+      isAuthent: false
+    }
+  }
+
+  componentDidMount() {
+    this.checkAuth();
+    history.listen((location, action) => {
+      // event listener
+    });
+    
+  }
+
+  async checkAuth() {
+    const token = await getTokenStorage();
+    console.log('token', token);
+    history.replace("", null);
+    if (!token || token === null) {
+      history.push("/login");
+      this.setState({
+        isAuthent: false,
+      });
+      
+    }else {
+      this.setState({
+        isAuthent: true,
+      });
+    }
+  }
+
+  getContent(){
+    return this.context;
+  }
+
+  render(){
+    return (
+      <Provider store={store}>
+        
+        <RouterComponent context={this.getContent.bind(this)} history={history} authent={this.state.isAuthent} />
+        
+      </Provider>
+    )
+  }
+} 
 
 export default App;

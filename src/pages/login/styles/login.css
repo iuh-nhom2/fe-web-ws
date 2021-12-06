@@ -1,0 +1,65 @@
+
+
+.login-page {
+  height: 100vh;
+  background: #eeeeee;
+  color: #1c1e21;
+  direction: ltr;
+  line-height: 1.34;
+  margin: 0;
+  font-family: 'Poppins', sans-serif !important;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  display: flex;
+}
+
+.card-login { 
+  width   : 100vh !important;
+  max-width: 384px !important
+}    
+
+.view-image {
+  width   : 100vh !important;
+  max-width: 384px !important;
+  padding: 20px;
+  max-height: 50vh;
+  background-color: #fff;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+  display: flex;
+}
+
+.img-login {
+  width   : 40vh !important;
+  max-width: 200px !important
+}
+
+.name-app {
+  color: #FF881C;
+  text-align: center;
+  font-weight: 700;
+}
+
+.btn-login {
+  color: #fff !important;
+  background-color: #FF881C !important;
+  border-color: #FF881C !important;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.btn-register {
+  color: #fff !important;
+  background-color: #14b148 !important;
+  border-color: #14b148 !important;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+}
+
+p {
+  margin-block-start: 0em !important;
+  margin-block-end: 0em !important;
+}
